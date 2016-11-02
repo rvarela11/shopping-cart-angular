@@ -1,0 +1,54 @@
+
+/* ------------------------------  home.html ------------------------------*/
+
+.container {
+  display: flex;
+}
+
+.innerContainer {
+  margin: auto;
+}
+
+.innerContainer h2 {
+  text-align: center;
+}
+
+.searchInputButton {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInputButton input[type=text] {
+  width: 100%;
+  margin: auto;
+}
+
+.searchButton {
+  width: 25%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.results, .resultsMovieInfo {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.results li:nth-child(2n+2) {
+  background-color: #ccc;
+}
+
+/* ------------------------------  details.html ------------------------------*/
+
+.movieInfo {
+  display: flex;
+}
+
+.resultsMovieInfo {
+  margin-left: 2%;
+}
+
+.details input[type="text"] {
+  width: 32%;
+}

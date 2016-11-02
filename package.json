@@ -1,0 +1,11 @@
+{
+  "name": "omdb-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "protractor ./test/conf.js"
+  },
+  "author": "Robert Varela <rvarela@utexas.edu>",
+  "license": "ISC"
+}

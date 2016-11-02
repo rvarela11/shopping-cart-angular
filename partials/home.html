@@ -1,0 +1,11 @@
+<h2>Angular OMDb API Search</h2>
+<div class="searchInputButton">
+  <input type="text" ng-model="movieTitle" placeholder="Search">
+  <button type="button" class="btn btn-primary searchButton" ng-click="search(movieTitle)">Submit</button>
+</div>
+<p></p>
+<ul class="results">
+  <li ng-repeat="movie in results"><a href="#/details/{{ movie.imdbID }}">
+    {{movie.Title}}
+  </a></li>
+</ul>
