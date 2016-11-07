@@ -1,5 +1,8 @@
 
 /* ------------------------------  home.html ------------------------------*/
+.logo {
+  text-align: center;
+}
 
 .container {
   display: flex;
@@ -9,46 +12,61 @@
   margin: auto;
 }
 
-.innerContainer h2 {
-  text-align: center;
+.thBox {
+  border: 1px solid #ccc;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 1%;
 }
 
-.searchInputButton {
+.dropInput {
+  margin-bottom: 1%;
+  border: 1px solid #ccc;
+  padding-top: 2%;
+  padding-bottom: 2%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.searchInputButton input[type=text] {
-  width: 100%;
-  margin: auto;
+.dropInput select {
+  margin-right: 1%;
 }
 
-.searchButton {
-  width: 25%;
-  margin: auto;
-  margin-top: 2%;
+.dropInput button {
+  margin-left: 1%;
 }
 
-.results, .resultsMovieInfo {
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
+.table>tbody>tr>td {
+  border: none;
 }
 
-.results li:nth-child(2n+2) {
-  background-color: #ccc;
+.trBox {
+  border: 1px solid #ccc;
 }
 
-/* ------------------------------  details.html ------------------------------*/
+.tdInfo {
+  border-left: 1px solid #ccc !important;
+}
 
-.movieInfo {
+.imageBox {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.resultsMovieInfo {
-  margin-left: 2%;
+.table {
+  table-layout:fixed;
 }
 
-.details input[type="text"] {
-  width: 32%;
+.table td {
+  overflow: hidden;
+}
+
+/* ------------------------------  checkout.html ------------------------------*/
+
+.checkoutTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

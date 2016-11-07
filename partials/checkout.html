@@ -1,0 +1,31 @@
+
+  <h2>My Shopping Bag</h2>
+  <h2>Order total: {{ mybag.sum/100 | currency }}</h2>
+
+  <table class="table">
+    <th class="thBox">Product</th>
+    <th class="thBox">Quantity</th>
+    <th class="thBox">Sub-total</th>
+    <tr class="trBox" ng-repeat="item in mybag.items track by $index">
+      <td class="tdInfo">
+        <p> {{ item.name }} </p>
+        <img ng-src="{{ item.imageUrl}}" alt="tea picture" />
+        <p><strong>Price: </strong> {{ item.price/100 | currency }}</p>
+        <p><strong>Caffeine Scale:</strong> {{ item.caffeineScale }}</p>
+        <p><strong>Ingredients:</strong> {{ item.ingredients }}</p>
+        <p><strong>Rating: </strong> {{ item.rating }}</p>
+      </td>
+      <td class="tdInfo">
+        <p ng-hide="showme"> {{ item.__v}} </p>
+        <input type="number" name="newQuantity" placeholder="Number" ng-model="newQuantity" ng-show="showme">
+      </td>
+      <td class="tdInfo">
+        <p> {{ (item.price * item.__v)/100 | currency }} </p>
+      </td>
+      <td class="tdInfo">
+        <button type="button" name="button" class="btn btn-warning" ng-click="showme = true" ng-hide="showme">Edit</button>
+        <button type="button" name="button" class="btn btn-warning" ng-click="mybag.save(newQuantity, $index); showme = false" ng-show="showme">Save</button>
+        <button type="button" name="button" class="btn btn-danger" ng-click="mybag.delete($index)">Remove</button>
+      </td>
+    </tr>
+  </table>

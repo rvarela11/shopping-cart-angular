@@ -3,9 +3,8 @@ app.config(function($routeProvider) {
     .when('/', {
       templateUrl: 'partials/home.html',
       controller: 'HomeController'
-    })
-    .when('/details/:movieId', {
-      templateUrl: 'partials/details.html',
-      controller: 'AnotherController'
+    }).when('/checkout', {
+      templateUrl: 'partials/checkout.html',
+      controller: 'CheckoutController'
     })
 });

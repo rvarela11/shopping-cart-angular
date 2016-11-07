@@ -1,11 +1,54 @@
-<h2>Angular OMDb API Search</h2>
-<div class="searchInputButton">
-  <input type="text" ng-model="movieTitle" placeholder="Search">
-  <button type="button" class="btn btn-primary searchButton" ng-click="search(movieTitle)">Submit</button>
+<h2 class="logo">Teas Shopping Cart</h2>
+
+<div class="dropInput">
+  <select class="btn btn-primary" ng-model="option">
+    <option disabled selected value> Price </option>
+    <option value="-price">Highest</option>
+    <option value="price">Lowest</option>
+  </select>
+  <select class="btn btn-primary" ng-model="categorySearch">
+    <option disabled selected value> Categories </option>
+    <option ng-repeat="info in teas.categories" value="{{info}}"> {{ info }}</option>
+  </select>
+  <input type="text" placeholder="Search by name" ng-model="nameSearch">
+  <button type="button" name="button" class="btn btn-danger checkoutButton" ng-click="checkoutButton()">Checkout | Bag: {{ arr.length === 0? 'Empty': arr.length }} </button>
 </div>
-<p></p>
-<ul class="results">
-  <li ng-repeat="movie in results"><a href="#/details/{{ movie.imdbID }}">
-    {{movie.Title}}
-  </a></li>
-</ul>
+
+<table class="table">
+  <th class="thBox">Teas</th>
+  <th class="thBox">Information</th>
+  <tr class="trBox" ng-repeat="tea in teas.teas | filter: categorySearch | filter: nameSearch | orderBy: option">
+    <td class="imageBox">
+      <img ng-src="{{ tea.imageUrl}}" alt="tea picture" />
+    </td>
+    <td class="tdInfo">
+      <h3>{{ tea.name }}
+        <span class="pull-right">
+          Quantity:
+          <select ng-model="quantity">
+            <option ng-repeat="qty in [1,2,3,4,5,6,7,8,9,10]">{{qty}}</option>
+          </select>
+          <button type="button" name="button" class="btn btn-warning" ng-click="teas.addToBag(tea,quantity)">Add To Bag</button>
+        </span>
+      </h3>
+      <p><strong>Price: </strong> {{ tea.price/100 | currency }}</p>
+      <p><strong>Caffeine Scale:</strong> {{ tea.caffeineScale }}</p>
+      <p><strong>Ingredients:</strong> {{ tea.ingredients }}</p>
+      <p><strong>Rating: </strong> {{ tea.rating }}</p>
+      <p><strong>In Stock:</strong> {{ tea.inStock ? 'Yes':'No' }}</p>
+      <p><strong>Categories:</strong></p>
+      <ul>
+        <li ng-repeat="item in tea.categories">
+          {{ item }}
+        </li>
+      </ul>
+      <!-- <p>
+        <div class="caffeine-section">
+          <h4>Caffeine</h4>
+          mg/serving: {{ tea.cafeineScale }}
+          <caffeine-meter caffeinemg="tea.caffeineScale" id="tea._id"></caffeine-meter>
+        </div>
+      </p> -->
+    </td>
+  </tr>
+</table>
